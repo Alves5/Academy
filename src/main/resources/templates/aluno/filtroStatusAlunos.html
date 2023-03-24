@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Academy - Alunos ativos</title>
+  <meta name="author" content="Daniel Alves"/>
+</head>
+<body>
+  <div th:replace="fragmentos/fragmentoAlunosFiltrados :: headerAlunosFiltrados"></div>
+
+  <div class="container" style="margin-top: 30px">
+    <a th:href="@{/filtroAlunos}" class="btn btn-info col-md-1" style="margin-bottom: 20px">Voltar</a>
+
+    <h3 id="title-status" th:text="'Alunos '+${status}+'s'" style="text-transform: lowercase"></h3>
+    <hr>
+    <div class="table-responsive-lg">
+      <table id="tableAlunos" class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Curso</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Status</th>
+            <th scope="col">Turno</th>
+            <th scope="col" style="text-align: center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="lista : ${statusAlunos}">
+            <td th:text="${lista.id}"></td>
+            <td th:text="${lista.nome}"></td>
+            <td th:text="${lista.curso}"></td>
+            <td th:text="${lista.matricula}"></td>
+            <td th:text="${lista.status}"></td>
+            <td th:text="${lista.turno}"></td>
+            <td style="text-align: center">
+              <div class="dropdown">
+                <button class="btn-actions  btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-caret-down fa-sm"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" th:href="@{alterar/{id}(id=${lista.id})}">Alterar</a></li>
+                  <li><a class="dropdown-item" th:href="@{excluir/{id}(id=${lista.id})}">Excluir</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/webjars/jquery/3.6.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="/webjars/bootstrap/5.2.3/dist/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
