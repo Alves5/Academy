@@ -1,0 +1,107 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+nav{
+    height: 90px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+a.btn-nav:hover{
+    color: #BA68C8
+}
+.nav-link{
+    color: white;
+}
+a{
+    cursor: pointer;
+}
+.neo-section{
+    min-height: 700px;
+    background-size:cover !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+}
+.neo-container{
+    max-width: 1280px;
+    padding: 2% 2%;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+.texto-main{
+    color: white;
+    font-size: 3em;
+    font-family: 'Ubuntu';
+    font-weight: bold;
+}
+.sombra{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgb(0,0,0,0.7);
+    z-index: 100;
+}
+.neo-section > .neo-container{
+    position: relative;
+    z-index: 105;
+}
+.clear{
+    clear: both;
+}
+.center{
+    text-align: center;
+}
+.wm{
+    width: 50%;
+    float: left;
+}
+.btn-main{
+    color: white;
+    width: 280px;
+    border-radius: 10px;
+    border: 3px solid #a55eea;
+    padding: 10px;
+    font-weight: bold;
+}
+.btn-main:hover{
+    color: #CE93D8;
+    background-color: rgb(0,0,0,0.5);
+}
+.botoes{
+    padding: 2% 15%;
+}
+.rodape{
+    color: white;
+    background-color: #483D8B;
+    text-align: center;
+    font-size: 1.25em;
+    padding: 15px;
+}
+/*Responsividade*/
+@media screen and (max-width: 667px){
+    .wm{
+        width: 100%;
+    }
+    nav{
+        height: 100%;
+    }
+    .neo-container{
+        margin-top: 120px;
+    }
+}
+.dropdown-toggle::after{
+    display: none !important;
+}
+.btn-actions{
+    border: 1px solid gray;
+}
+.card-title:first-letter, .card-text:first-letter, #title-status:first-letter{
+    text-transform: uppercase;
+}
